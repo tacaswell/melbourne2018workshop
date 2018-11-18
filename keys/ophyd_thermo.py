@@ -45,4 +45,6 @@ if app is None:
 
 td = ThermoDevice('thermo:', name='td')
 suite = TyphonSuite.from_device(td)
-suite.show()
+qm = QtWidgets.QMainWindow()
+qm.setCentralWidget(suite)
+qm.show()
