@@ -3,10 +3,6 @@ from ophyd import Component as Cpt, EpicsSignal, EpicsSignalRO, DeviceStatus
 from typhon import TyphonSuite
 from qtpy import QtWidgets
 
-app = QtWidgets.QApplication.instance()
-if app is None:
-    app = QtWidgets.QApplication([b"python epics"])
-
 
 class ThermoDevice(ophyd.Device):
     readback = Cpt(EpicsSignalRO, 'I')
@@ -41,6 +37,11 @@ class ThermoDevice(ophyd.Device):
         self.setpoint.put(val)
         return self._status
 
+
+# this is to make sure typhon does not crash out
+app = QtWidgets.QApplication.instance()
+if app is None:
+    app = QtWidgets.QApplication([b"python epics"])
 
 td = ThermoDevice('thermo:', name='td')
 suite = TyphonSuite.from_device(td)
