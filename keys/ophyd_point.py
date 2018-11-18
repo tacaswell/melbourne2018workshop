@@ -5,9 +5,9 @@ from qtpy import QtWidgets
 
 
 class PointDetectorDevice(ophyd.Device):
-    mtr = Cpt(EpicsSignal, 'mtr')
+    mtr = Cpt(EpicsSignal, 'mtr', kind='hinted')
     exp = Cpt(EpicsSignal, 'exp', kind='config')
-    det = Cpt(EpicsSignalRO, 'det')
+    det = Cpt(EpicsSignalRO, 'det', kind='hinted')
     acq = Cpt(EpicsSignal, 'acq', kind='omitted')
     busy = Cpt(EpicsSignalRO, 'busy', kind='omitted')
 

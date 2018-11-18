@@ -5,7 +5,7 @@ from qtpy import QtWidgets
 
 
 class ThermoDevice(ophyd.Device):
-    readback = Cpt(EpicsSignalRO, 'I')
+    readback = Cpt(EpicsSignalRO, 'I', kind='hinted')
     setpoint = Cpt(EpicsSignal, 'SP')
     k = Cpt(EpicsSignal, 'K', kind='config')
     omega = Cpt(EpicsSignal, 'omega', kind='config')
