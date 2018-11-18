@@ -20,3 +20,5 @@ asks
 curio
 trio
 pyqt5
+databroker
+pymongo
