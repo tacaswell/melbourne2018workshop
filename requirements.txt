@@ -1,6 +1,5 @@
 git+https://github.com/pcdshub/QDarkStyleSheet.git
-git+https://github.com/pcdshub/happi.git
-git+https://github.com/pcdshub/typhon.git
+git+https://github.com/tacaswell/typhon.git@dev_use_requirements
 git+https://github.com/slaclab/pydm.git
 git+https://github.com/tacaswell/caproto.git@fix_alarm_subscriptions
 git+https://github.com/tacaswell/timechart.git@fix_future_pydm
