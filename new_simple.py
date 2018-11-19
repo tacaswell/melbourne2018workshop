@@ -3,12 +3,14 @@ from caproto.server import pvproperty, PVGroup, ioc_arg_parser, run
 import time
 import random
 
+
 class SimpleIOC(PVGroup):
     "An IOC with two simple read/writable PVs"
     A = pvproperty(value=1)
     B = pvproperty(value=2)
     # ADDED THIS LINE
-    C = pvproperty(value=2.0, dtype=float, precision=5)
+    C = pvproperty(value=2.0, dtype=float, precision=5,
+                   name='foo', units='m', )
 
     @C.putter
     async def C(self, instance, value):
