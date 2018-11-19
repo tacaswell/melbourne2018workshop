@@ -10,7 +10,7 @@ class ThermoDevice(ophyd.Device):
     k = Cpt(EpicsSignal, 'K', kind='config')
     omega = Cpt(EpicsSignal, 'omega', kind='config')
     tvar = Cpt(EpicsSignal, 'Tvar', kind='config')
-    state = Cpt(EpicsSignalRO, 'state', string=True)
+    state = Cpt(EpicsSignalRO, 'state', string=True, kind='omitted')
     deadband = Cpt(EpicsSignal, 'deadband', kind='config')
     settle_time = Cpt(EpicsSignal, 'settle_time', kind='config')
 
@@ -33,9 +33,9 @@ class ThermoDevice(ophyd.Device):
             st._finished(success=False)
             self._status = None
 
-        self._status = DeviceStatus(self)
+        st = self._status = DeviceStatus(self)
         self.setpoint.put(val)
-        return self._status
+        return st
 
 
 # this is to make sure typhon does not crash out
